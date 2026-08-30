@@ -12,7 +12,9 @@ const isNative = process.env.VITE_NATIVE === '1'
 // The web build is served from a repo subpath on GitHub Pages, so its assets
 // need that prefix. Dev keeps '/' so localhost is unaffected.
 const base =
-  isNative || process.env.NODE_ENV !== 'production' ? '/' : '/focus-app/'
+  isNative || process.env.NODE_ENV !== 'production'
+    ? '/'
+    : (process.env.VITE_BASE ?? '/optifocus/')
 
 // The manifest is generated rather than committed so the product name stays
 // in one place — branding.js — instead of being copied into a static file the
